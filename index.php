@@ -1,3 +1,7 @@
+<?php
+include_once('./conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,20 +10,25 @@
     <title>Biblioteca</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
-    <?php include 'header.php'; ?>
-    
+<header>
+    <h1>Biblioteca</h1>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="adicionar_livro.php">Adicionar Livro</a></li>
+            <li><a href="listar_livros.php">Listar Livros</a></li>
+        </ul>
+    </nav>
+</header>
     <main>
         <h1>Bem-vindo à Biblioteca</h1>
         <p>Este é um sistema de gerenciamento de biblioteca.</p>
-        <nav>
-            <ul>
-                <li><a href="adicionar_livro.php">Adicionar Livro</a></li>
-                <li><a href="listar_livros.php">Listar Livros</a></li>
-            </ul>
-        </nav>
     </main>
-    
-    <?php include 'footer.php'; ?>
+<footer>
+    <p>&copy; 2024 Biblioteca. Todos os direitos reservados.</p>
+</footer>
 </body>
+
 </html>
