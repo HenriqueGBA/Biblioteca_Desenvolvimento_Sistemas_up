@@ -17,8 +17,8 @@ include_once('./conexao.php');
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="adicionar_livro.php">Adicionar Livro</a></li>
-            <li><a href="listar_livros.php">Listar Livros</a></li>
+            <li><a href="./pages/livros.php">Livros Disponiveis</a></li>
+            <li><a href="./pages/sobre_nos.php">Sobre nós</a></li>
         </ul>
     </nav>
 </header>
