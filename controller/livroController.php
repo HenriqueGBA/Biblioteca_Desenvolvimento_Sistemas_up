@@ -1,19 +1,32 @@
 <?php
-require_once '../model/Livro.php';
+include_once __DIR__ . './../model/conexao.php';
+include_once __DIR__ . './../model/Livro.php';
 
-$livro = new Livro($pdo);
+class LivroController {
+    private $livro;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $titulo = trim($_POST['titulo']);
-    $autor = trim($_POST['autor']);
-    $ano = trim($_POST['ano']);
+    public function __construct($pdo) {
+        $this->livro = new Livro($pdo);
+    }
 
-    if (empty($titulo) || empty($autor) || empty($ano)) {
-        $erro = "Preencha todos os campos!";
-    } else {
-        $livro->adicionar($titulo, $autor, $ano);
-        header('Location: ../views/livros/listar.php');
-        exit;
+    public function listar() {
+        return $this->livro->listar();
+    }
+
+    public function adicionar($titulo, $autor, $ano) {
+        $this->livro->adicionar($titulo, $autor, $ano);
+    }
+
+    public function editar($id, $titulo, $autor, $ano) {
+        $this->livro->editar($id, $titulo, $autor, $ano);
+    }
+
+    public function deletar($id) {
+        $this->livro->deletar($id);
+    }
+
+    public function buscarPorId($id) {
+        return $this->livro->buscarPorId($id);
     }
 }
 ?>

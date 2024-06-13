@@ -28,4 +28,12 @@ class Livro {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
     }
+
+    public function buscarPorId($id) {
+        $sql = "SELECT * FROM livro WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
 }
+?>

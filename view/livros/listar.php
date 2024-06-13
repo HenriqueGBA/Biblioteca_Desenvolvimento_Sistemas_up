@@ -1,15 +1,11 @@
 <?php
-include '../../model/Livro.php';
+include '../../controller/livroController.php';
 include '../../model/conexao.php';
 
-if (!isset($pdo)) {
-    die('Erro ao conectar ao banco de dados.');
-}
-
-$livro = new Livro($pdo);
-$livros = $livro->listar();
+$controller = new LivroController($pdo);
+$livros = $controller->listar();
 ?>
-
+<link rel="stylesheet" href="./../style.css">
 <header>
 <h1>Biblioteca</h1>
     <nav>
@@ -27,12 +23,17 @@ $livros = $livro->listar();
         <th>Título</th>
         <th>Autor</th>
         <th>Ano</th>
+        <th>Ações</th>
     </tr>
     <?php foreach ($livros as $livro): ?>
         <tr>
             <td><?php echo htmlspecialchars($livro['titulo']); ?></td>
             <td><?php echo htmlspecialchars($livro['autor']); ?></td>
             <td><?php echo htmlspecialchars($livro['ano']); ?></td>
+            <td>
+                <a href="editar.php?id=<?php echo $livro['id']; ?>">Editar</a>
+                <a href="deletar.php?id=<?php echo $livro['id']; ?>">Deletar</a>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
