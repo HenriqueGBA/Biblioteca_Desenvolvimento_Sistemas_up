@@ -4,13 +4,13 @@ include './../../model/conexao.php';
 
 $controller = new LivroController($pdo);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $ano = $_POST['ano'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $titulo = $_POST['titulo'] ?? '';
+    $autor = $_POST['autor'] ?? '';
+    $ano = $_POST['ano'] ?? '';
 
     if (empty($titulo) || empty($autor) || empty($ano)) {
-        $error = "Preencha todos os campos.";
+        $erro = "Todos os campos são obrigatórios!";
     } else {
         $controller->adicionar($titulo, $autor, $ano);
         header('Location: listar.php');
@@ -19,11 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <link rel="stylesheet" href="./../style.css">
+
 <header>
 <h1>Biblioteca</h1>
     <nav>
         <ul>
-            <li><a href="../view/index.php">Home</a></li>
+            <li><a href="/view/index.php">Home</a></li>
             <li><a href="../view/livros/listar.php">Livros Disponiveis</a></li>
             <li><a href="../view/login.php">Login</a></li>
             <li><a href="./CRUD_USUARIOS/criar_usuario.php">cadastrar novo usuario</a></li>
@@ -31,20 +32,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><a href="./CRUD_USUARIOS/atualizar_usuario.php">atualizar usuarios cadastrados</a></li>
         </ul>
     </nav>
+</header>   
     <h2>Adicionar Livro</h2>
 
-<?php if (isset($error)): ?>
-    <p style="color:red;"><?php echo $error; ?></p>
+<?php if (isset($erro)): ?>
+    <p style="color:red;"><?php echo $erro; ?></p>
 <?php endif; ?>
 
 <form action="adicionar.php" method="post">
     <label for="titulo">Título:</label>
-    <input type="text" name="titulo" id="titulo" required><br>
+    <input type="text" name="titulo" id="titulo"><br>
     <label for="autor">Autor:</label>
-    <input type="text" name="autor" id="autor" required><br>
+    <input type="text" name="autor" id="autor"><br>
     <label for="ano">Ano:</label>
-    <input type="number" name="ano" id="ano" required><br>
+    <input type="number" name="ano" id="ano"><br>
     <input type="submit" value="Adicionar">
 </form>
 
-</header>
+<div>
+   <footer>
+        <p>&copy; 2024 Biblioteca. Todos os direitos reservados.</p>
+    </footer>
+</div>

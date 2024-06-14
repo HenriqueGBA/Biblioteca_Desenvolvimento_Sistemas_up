@@ -18,21 +18,21 @@ class Livro {
     }
 
     public function editar($id, $titulo, $autor, $ano) {
-        $sql = "UPDATE livro SET titulo = :titulo, autor = :autor, ano = :ano WHERE id = :id";
+        $sql = "UPDATE livro SET titulo = :titulo, autor = :autor, ano = :ano WHERE idlivro = :idlivro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['titulo' => $titulo, 'autor' => $autor, 'ano' => $ano, 'id' => $id]);
+        $stmt->execute(['titulo' => $titulo, 'autor' => $autor, 'ano' => $ano, 'idlivro' => $id]);
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM livro WHERE id = :id";
+        $sql = "DELETE FROM livro WHERE idlivro = :idlivro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['idlivro' => $id]);
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM livro WHERE id = :id";
+        $sql = "SELECT * FROM livro WHERE idlivro = :idlivro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['idlivro' => $id]);
         return $stmt->fetch();
     }
 }
