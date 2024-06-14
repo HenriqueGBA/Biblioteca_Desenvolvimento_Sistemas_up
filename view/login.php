@@ -1,31 +1,25 @@
-<?php
-include('../controller/loginController.php');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <title>Login</title>
 </head>
-
 <body>
-    <!-- <header>
-        <h1>Biblioteca</h1>
-        <nav>
-            <ul>
-                <li><a href="../view/index.php">Home</a></li>
-                <li><a href="../view/livros/listarlivros.php">Livros Disponiveis</a></li>
-                <li><a href="../view/login.php">Login</a></li>
-            </ul>
-        </nav>
-    </header> -->
+    <?php
+    include('../controller/loginController.php');
+
+    if (isset($_GET['success']) && $_GET['success'] == 1) {
+        echo "<script>alert('Usuário cadastrado com sucesso. Faça o login.');</script>";
+    }
+    ?>
+
     <div style="background-color:coral; margin:10px">
-        <?php
-        echo $erro ?? '';
+        <?php 
+            if (isset($erro)) {
+                echo $erro;
+            }
         ?>
     </div>
 
@@ -35,8 +29,7 @@ include('../controller/loginController.php');
         <label for='password'>Senha:<input type="password" name="senha" placeholder=" Digite sua senha"><br><br>
         <button type="submit" name="login">Continuar</button>
         <br><a href="./cadastraUsuario.php">Ainda não sou cadastrado</a>
-        <br><a href="./index.php">Voltar</a>
+        <br><a href="javascript:history.go(-1)">Voltar</a>
     </form>
 </body>
-
 </html>

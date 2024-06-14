@@ -37,3 +37,4 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 if (isset($_GET['erro'])) {
     $erro = "É necessário logar para acessar o sistema";
 }
+?>
