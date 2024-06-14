@@ -12,10 +12,9 @@ function cadastrarUsuario($nome, $email, $senha, $senhaConfirm) {
         return "As senhas não coincidem.";
     }
 
-    // Hash da senha
+    // Criptografar a senha cadastrada
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    // Inserção no banco de dados
     $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nome', $nome);
@@ -23,7 +22,7 @@ function cadastrarUsuario($nome, $email, $senha, $senhaConfirm) {
     $stmt->bindParam(':senha', $senhaHash);
         
     if ($stmt->execute()) {
-        header("Location: ../../pages/login.php?success=1");
+        header("Location: ../view/login.php");
         exit();
     } else {
         return "Erro ao cadastrar usuário.";

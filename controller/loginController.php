@@ -1,8 +1,6 @@
 <?php
 include('../model/conexao.php');
 
-session_start();
-
 if (isset($_POST['email']) && isset($_POST['senha'])) {
     if (empty($_POST['email'])) {
         $erro = "Preencha seu email";
@@ -12,16 +10,18 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
+        $sql = "SELECT * FROM usuario WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
         $stmt->execute();
 
-        $quantidade = $stmt->rowCount();
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($quantidade == 1) {
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            
+            if (!isset($_SESSION)) {
+                session_start();
+            }
 
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
