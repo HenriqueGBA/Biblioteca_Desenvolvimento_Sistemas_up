@@ -17,8 +17,8 @@ class clienteController {
         $this->cliente->cadastrar($nome, $email, $telefone, $cpf);
     }
 
-    public function editar($id, $nome, $email, $telefone, $cpf) {
-        $this->cliente->editar($id, $nome, $email, $telefone, $cpf);
+    public function editar($id, $nome, $email, $telefone) {
+        $this->cliente->editar($id, $nome, $email, $telefone);
     }
 
     public function deletar($id) {

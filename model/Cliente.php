@@ -1,5 +1,5 @@
 <?php
-include '../controller/clienteController.php';
+
 class Cliente{
     
     private $pdo; 

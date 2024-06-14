@@ -11,10 +11,10 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    position: fixed;
+    position: flex;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    
 }
 
 header h1 {

@@ -19,7 +19,8 @@ include_once('../model/conexao.php');
             <li><a href="../view/painel.php">Home</a></li>
             <li><a href="../view/livros/listar.php">Listar Livros</a></li>
             <li><a href="../view/emprestimos.php">Empréstimos</a></li>
-            <li><a href="../view/clientes/cadastrar.php">Cadastrar Cliente</a></li>
+            <li><a href="../view/clientes/criarCliente.php">Cadastrar Cliente</a></li>
+            <li><a href="../view/clientes/listarCliente.php">Listar Clientes</a></li>
             <li><a href="../logout.php">Sair</a></li>
         </ul>
     </nav>
@@ -44,7 +45,7 @@ include_once('../model/conexao.php');
                     <p>Realize e gerencie empréstimos</p>
                 </div>
                 <div class="card">
-                    <h3><a href="../view/clientes/cadastrar.php">Cadastrar Cliente</a></h3>
+                    <h3><a href="../view/clientes/criarCliente.php">Cadastrar Cliente</a></h3>
                     <p>Cadastre novos clientes</p>
                 </div>
                 <div class="card">
