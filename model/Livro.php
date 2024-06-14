@@ -35,5 +35,28 @@ class Livro {
         $stmt->execute(['idlivro' => $id]);
         return $stmt->fetch();
     }
+    
+    public function listarDisponiveis() {
+        $query = "SELECT * FROM livros WHERE disponivel = 1";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // public function buscarPorId($id) {
+    //     $query = "SELECT * FROM livros WHERE id = :id";
+    //     $stmt = $this->pdo->prepare($query);
+    //     $stmt->bindParam(':id', $id);
+    //     $stmt->execute();
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
+
+    public function verificarDisponibilidade($id) {
+        $query = "SELECT disponivel FROM livros WHERE id = :id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchColumn() == 1;
+    }
 }
 ?>
