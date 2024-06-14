@@ -19,15 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
     <title>Cadastro de Usuario</title>
 </head>
 
 <body>
-    <h2>Cadastro de Usuário</h2>
     <?php if ($mensagem) : ?>
-    <p><?php echo $mensagem; ?></p>
+        <p><?php echo $mensagem; ?></p>
     <?php endif; ?>
+
     <form action="" method="post">
+        <p>
+            Cadastro de Usuário
+        </p>
         <label>Nome:</label>
         <input type="text" name="nome" id="nome"><br>
         <label>E-mail:</label>
@@ -36,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="senha" id="senha"><br>
         <label>Confirmar Senha:</label>
         <input type="password" name="senhaConfirm" id="senhaConfirm"><br>
-        <input type="submit" value="Criar">
+        <button type="submit" name="criar">Continuar</button>
     </form>
 </body>
 
