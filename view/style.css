@@ -43,32 +43,66 @@ main {
     padding: 20px;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
+h2 {
+    color: #333;
+}
+
+form {
     background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.welcome {
-    margin-bottom: 40px;
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.about {
-    padding: 20px;
-    background-color: #f9f9f9;
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.about h2 {
-    color: #333;
+form button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
 }
 
-.about p {
-    line-height: 1.6;
+form button:hover {
+    background-color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 footer {

@@ -18,21 +18,21 @@ class Livro {
     }
 
     public function editar($id, $titulo, $autor, $ano) {
-        $sql = "UPDATE livro SET titulo = :titulo, autor = :autor, ano = :ano WHERE idlivro = :idlivro";
+        $sql = "UPDATE livro SET titulo = :titulo, autor = :autor, ano = :ano WHERE id_livro = :id_livro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['titulo' => $titulo, 'autor' => $autor, 'ano' => $ano, 'idlivro' => $id]);
+        $stmt->execute(['titulo' => $titulo, 'autor' => $autor, 'ano' => $ano, 'id_livro' => $id]);
     }
 
     public function deletar($id) {
-        $sql = "DELETE FROM livro WHERE idlivro = :idlivro";
+        $sql = "DELETE FROM livro WHERE id_livro = :id_livro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['idlivro' => $id]);
+        $stmt->execute(['id_livro' => $id]);
     }
 
     public function buscarPorId($id) {
-        $sql = "SELECT * FROM livro WHERE idlivro = :idlivro";
+        $sql = "SELECT * FROM livro WHERE id_livro = :id_livro";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['idlivro' => $id]);
+        $stmt->execute(['id_livro' => $id]);
         return $stmt->fetch();
     }
     
@@ -52,7 +52,7 @@ class Livro {
     // }
 
     public function verificarDisponibilidade($id) {
-        $query = "SELECT disponivel FROM livros WHERE id = :id";
+        $query = "SELECT disponivel FROM livro WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

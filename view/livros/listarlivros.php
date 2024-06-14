@@ -1,7 +1,7 @@
 <?php
 include '../../controller/livroController.php';
 include '../../model/conexao.php';
-include('../../protect.php');
+
 
 
 $controller = new LivroController($pdo);
@@ -30,14 +30,12 @@ $livros = $controller->listar();
 </header>
 
 <h2>Lista de Livros</h2>
-<a href="adicionar.php">Adicionar Livro</a>
 
 <table>
     <tr>
         <th>Título</th>
         <th>Autor</th>
         <th>Ano</th>
-        <th>Ações</th>
     </tr>
     <?php foreach ($livros as $livro): ?>
         <tr>
@@ -45,8 +43,6 @@ $livros = $controller->listar();
             <td><?php echo htmlspecialchars($livro['autor']); ?></td>
             <td><?php echo htmlspecialchars($livro['ano']); ?></td>
             <td>
-                <a href="editar.php?id_livro=<?php echo htmlspecialchars($livro['id_livro']); ?>">Editar</a>
-                <a href="deletar.php?id_livro=<?php echo htmlspecialchars($livro['id_livro']); ?>" onclick="return confirm('Tem certeza que deseja deletar este livro?');">Deletar</a>
             </td>
         </tr>
     <?php endforeach; ?>

@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
+        $sql = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senha);

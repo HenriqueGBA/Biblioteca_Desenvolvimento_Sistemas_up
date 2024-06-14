@@ -8,12 +8,12 @@ if (!isset($pdo)) {
     die('Erro ao conectar ao banco de dados.');
 }
 
-if (!isset($_GET['idlivro'])) {
+if (!isset($_GET['id_livro'])) {
     echo "ID do livro não fornecido.";
     exit;
 }
 
-$id = $_GET['idlivro'];
+$id = $_GET['id_livro'];
 
 $livroAtual = $controller->buscarPorId($id);
 

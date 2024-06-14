@@ -4,5 +4,5 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['nome'])) {
-    die("Você não tem permissão para acessar esta página. <p><a href=\"login.php\">entrar</a></p>");
+    die("Você não tem permissão para acessar esta página. <p><a href=\"./view/login.php\">entrar</a></p>");
 }

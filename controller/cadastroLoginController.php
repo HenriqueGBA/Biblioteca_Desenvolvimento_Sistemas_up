@@ -16,7 +16,7 @@ function cadastrarUsuario($nome, $email, $senha, $senhaConfirm) {
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     // Inserção no banco de dados
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)";
+    $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);

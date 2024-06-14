@@ -8,12 +8,12 @@ if (!isset($pdo)) {
     die('Erro ao conectar ao banco de dados.');
 }
 
-if (!isset($_GET['idlivro'])) {
+if (!isset($_GET['id_livro'])) {
     echo "ID do livro não fornecido.";
     exit;
 }
 
-$id = $_GET['idlivro'];
+$id = $_GET['id_livro'];
 $livroAtual = $controller->buscarPorId($id);
 
 if (!$livroAtual) {
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p style="color:red;"><?php echo $erro; ?></p>
 <?php endif; ?>
 
-<form action="editar.php?idlivro=<?php echo $id; ?>" method="post">
+<form action="editar.php?id_livro=<?php echo $id; ?>" method="post">
     <label for="titulo">Título:</label>
     <input type="text" name="titulo" id="titulo" value="<?php echo htmlspecialchars($livroAtual['titulo']); ?>"><br>
     <label for="autor">Autor:</label>
