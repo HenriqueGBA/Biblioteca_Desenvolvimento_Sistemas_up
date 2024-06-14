@@ -8,40 +8,55 @@ include_once('../model/conexao.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Biblioteca - Funcionário</title>
+    <link rel="stylesheet" href="./css/styleIndexFuncionario.css">
 </head>
 <body>
 <header>
-<h1>Biblioteca</h1>
+    <h1>Biblioteca</h1>
     <nav>
         <ul>
-            <li><a href="../view/index.php">Home</a></li>
-            <li><a href="../view/livros/listar.php">Livros Disponiveis</a></li>
-            <li><a href="../view/login.php">Login</a></li>
+            <li><a href="../view/painel.php">Home</a></li>
+            <li><a href="../view/livros/listar.php">Listar Livros</a></li>
+            <li><a href="../view/emprestimos.php">Empréstimos</a></li>
+            <li><a href="../view/clientes/cadastrar.php">Cadastrar Cliente</a></li>
+            <li><a href="../logout.php">Sair</a></li>
         </ul>
     </nav>
 </header>
-<section class="welcome">
+<main>
+    <section class="welcome">
         <div class="container">
-            <h1>Bem-vindo à Biblioteca</h1>
-            <p>Explore nossos livros e aproveite a leitura!</p>
+            <h1>Bem-vindo, Funcionário!</h1>
+            <p>Utilize o menu acima para gerenciar os livros, realizar empréstimos e cadastrar novos clientes. Seu trabalho ajuda a manter nossa biblioteca organizada e eficiente!</p>
         </div>
     </section>
     <section class="about">
         <div class="container">
-            <h2>Sobre a Biblioteca</h2>
-            <p>A nossa biblioteca oferece uma vasta coleção de livros dos mais diversos gêneros e autores. Aqui você pode encontrar desde clássicos da literatura até lançamentos recentes. Venha descobrir novos mundos através da leitura!</p>
+            <h2>Funcionalidades Disponíveis</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3><a href="../view/livros/listar.php">Listar Livros</a></h3>
+                    <p>Gerencie o acervo de livros</p>
+                </div>
+                <div class="card">
+                    <h3><a href="../view/emprestimos.php">Empréstimos</a></h3>
+                    <p>Realize e gerencie empréstimos</p>
+                </div>
+                <div class="card">
+                    <h3><a href="../view/clientes/cadastrar.php">Cadastrar Cliente</a></h3>
+                    <p>Cadastre novos clientes</p>
+                </div>
+                <div class="card">
+                    <h3><a href="../view/emprestimos.php">Verificar Empréstimos</a></h3>
+                    <p>Verifique a situação dos empréstimos</p>
+                </div>
+            </div>
         </div>
     </section>
 </main>
-   <div>
-   <footer>
-        <p>&copy; 2024 Biblioteca. Todos os direitos reservados.</p>
-    </footer>
-    </div>
+<footer>
+    <p>&copy; 2024 Biblioteca. Todos os direitos reservados.</p>
+</footer>
 </body>
-
 </html>
-
-    <a href="../logout.php">Sair</a>

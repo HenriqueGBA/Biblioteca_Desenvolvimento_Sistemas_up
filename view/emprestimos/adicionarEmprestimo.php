@@ -12,7 +12,6 @@ $usuarios = $usuario->listar();
 $pageTitle = "Adicionar Empréstimo";
 require_once '../includes/header.php';
 
-// Exibir mensagem de feedback
 if (isset($_GET['mensagem'])) {
     echo "<p>" . htmlspecialchars($_GET['mensagem']) . "</p>";
 }
