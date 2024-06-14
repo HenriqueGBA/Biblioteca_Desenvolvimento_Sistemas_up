@@ -21,9 +21,18 @@ include_once('../model/conexao.php');
         </ul>
     </nav>
 </header>
-<main>
-    <h1>Bem-vindo à Biblioteca</h1>
-    <p>Explore nossos livros e aproveite a leitura!</p>
+<section class="welcome">
+        <div class="container">
+            <h1>Bem-vindo à Biblioteca</h1>
+            <p>Explore nossos livros e aproveite a leitura!</p>
+        </div>
+    </section>
+    <section class="about">
+        <div class="container">
+            <h2>Sobre a Biblioteca</h2>
+            <p>A nossa biblioteca oferece uma vasta coleção de livros dos mais diversos gêneros e autores. Aqui você pode encontrar desde clássicos da literatura até lançamentos recentes. Venha descobrir novos mundos através da leitura!</p>
+        </div>
+    </section>
 </main>
    <div>
    <footer>
