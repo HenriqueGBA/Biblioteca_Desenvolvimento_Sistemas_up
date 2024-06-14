@@ -1,4 +1,5 @@
 <?php
+include('../protect.php');
 include_once('../model/conexao.php');
 ?>
 
@@ -16,7 +17,7 @@ include_once('../model/conexao.php');
     <nav>
         <ul>
             <li><a href="../view/index.php">Home</a></li>
-            <li><a href="../view/livros/listarlivros.php">Livros Disponiveis</a></li>
+            <li><a href="../view/livros/listar.php">Livros Disponiveis</a></li>
             <li><a href="../view/login.php">Login</a></li>
         </ul>
     </nav>
@@ -42,3 +43,5 @@ include_once('../model/conexao.php');
 </body>
 
 </html>
+
+    <a href="../logout.php">Sair</a>
