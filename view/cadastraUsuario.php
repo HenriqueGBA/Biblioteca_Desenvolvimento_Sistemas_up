@@ -1,33 +1,32 @@
-<?php
-include('../controller/cadastroLoginController.php');
-
-$mensagem = '';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $senhaConfirm = $_POST['senhaConfirm'];
-
-    $mensagem = cadastrarUsuario($nome, $email, $senha, $senhaConfirm);
-}
-?>
-
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <title>Cadastro de Usuario</title>
 </head>
-
 <body>
-    <?php if ($mensagem) : ?>
-        <p><?php echo $mensagem; ?></p>
-    <?php endif; ?>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        include('../model/UsuarioLogin.php');
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $senhaConfirm = $_POST['senhaConfirm'];
 
+        if ($senha !== $senhaConfirm) {
+            $mensagem = "As senhas não coincidem.";
+        } else {
+            $usuario = new UsuarioLogin($nome, $email, $senha);
+            $mensagem = $usuario->cadastrar();
+        }
+
+        if (isset($mensagem)) {
+            echo "<script>alert('$mensagem');</script>";
+        }
+    }
+    ?>
     <form action="" method="post">
         <p>
             Cadastro de Usuário
@@ -41,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label>Confirmar Senha:</label>
         <input type="password" name="senhaConfirm" id="senhaConfirm"><br>
         <button type="submit" name="criar">Continuar</button>
+        <a href="javascript:history.go(-1)">Voltar para a página anterior</a>
     </form>
 </body>
-
 </html>
