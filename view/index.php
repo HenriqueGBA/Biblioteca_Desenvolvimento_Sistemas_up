@@ -21,6 +21,8 @@ include_once('../model/conexao.php');
             <li><a href="./CRUD_USUARIOS/criar_usuario.php">cadastrar novo usuario</a></li>
             <li><a href="./CRUD_USUARIOS/listar_usuarios.php">listar usuarios cadastrados</a></li>
             <li><a href="./CRUD_USUARIOS/atualizar_usuario.php">atualizar usuarios cadastrados</a></li>
+            <li><a href="./CRUD_USUARIOS/atualizar_usuario.php">atualizar usuarios cadastrados</a></li>
+            <li><a href="../views/emprestimos/listar.php">Empréstimos</a></li>
         </ul>
     </nav>
 </header>

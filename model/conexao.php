@@ -1,6 +1,6 @@
 <?php 
 try{
-    $pdo = new PDO('mysql:host=localhost;dbname=biblioteca', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=biblioteca', 'root', 'admin');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Conexão realizada com sucesso!";
     return $pdo;
